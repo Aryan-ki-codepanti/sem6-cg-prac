@@ -7,6 +7,10 @@ using namespace std;
 void bresenham(float start_x, float start_y, float end_x, float end_y)
 {
 
+    // handle vertical case
+    if (end_x == start_x)
+        return;
+
     float del_x = end_x - start_x;
     float del_y = end_y - start_y;
 

@@ -7,6 +7,10 @@ using namespace std;
 void DDA(float start_x, float start_y, float end_x, float end_y)
 {
 
+        // handle vertical case
+    if (end_x == start_x)
+        return;
+
     float slope = (end_y - start_y) / (end_x - start_x);
     float x = start_x, y = start_y;
 
