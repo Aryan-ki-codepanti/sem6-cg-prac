@@ -15,6 +15,13 @@ void bresenham(float start_x, float start_y, float end_x, float end_y)
         return;
     }
 
+    // ensuring going left to right handle
+    if (start_x > end_x)
+    {
+        swap(start_x, end_x);
+        swap(start_y, end_y);
+    }
+
     float del_x = end_x - start_x;
     float del_y = end_y - start_y;
 
