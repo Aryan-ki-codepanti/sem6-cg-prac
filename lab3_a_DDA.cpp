@@ -23,15 +23,40 @@ void DDA(float start_x, float start_y, float end_x, float end_y)
     }
 
     float slope = (end_y - start_y) / (end_x - start_x);
-
-    // slope negative case
-    // if (slope < 0)
-    // {
-    //     swap(start_x, end_x);
-    //     swap(start_y, end_y);
-    // }
-
     float x = start_x, y = start_y;
+
+    // negative slope case
+    if (slope < 0)
+    {
+
+        swap(start_x, end_x);
+        swap(start_y, end_y);
+        cout << "Start: " << start_x << "," << start_y << endl;
+        cout << "End: " << end_x << "," << end_y << endl;
+
+        while (((x <= start_x) && (x >= end_x)) && ((y >= start_y) && (y <= end_y)))
+        {
+
+            putpixel(round(x), round(y), YELLOW);
+
+            cout << x << " , " << y << endl;
+
+            if (abs(slope) <= 1)
+            {
+                x += 1;
+                y = y + slope;
+            }
+            else
+            {
+                y += 1;
+                x = x + (1 / slope);
+            }
+        }
+
+        return;
+    }
+
+    // +ve slope case
 
     while ((x <= end_x) && (y <= end_y))
     {
@@ -59,15 +84,15 @@ int main()
     initgraph(&gd, &gm, (char *)"");
 
     // +ve slope case
-    // DDA(20, 10, 60, 100);
+    DDA(20, 10, 60, 100);
     // DDA(60, 100, 20, 10);
 
     // horizontal case
-    // DDA(20, 10, 60, 10);
+    DDA(20, 10, 60, 10);
     // DDA(60, 10, 20, 10);
 
     // vertical case
-    // DDA(20, 10, 20, 100);
+    DDA(20, 10, 20, 100);
 
     // -ve slope case
     DDA(0, 100, 100, 0);
