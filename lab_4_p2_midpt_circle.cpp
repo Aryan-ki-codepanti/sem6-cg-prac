@@ -1,5 +1,7 @@
 #include <iostream>
 #include <graphics.h>
+#include <cmath>
+
 using namespace std;
 
 void plot_circle_points(int x, int y, int center_x, int centre_y, int color)
@@ -33,7 +35,7 @@ void plot_circle(int radius, int centre_x, int centre_y, int color)
             y--;
         }
         x++;
-        plot_circle_points(x, y, centre_x, centre_y, color);
+        plot_circle_points(round(x), round(y), centre_x, centre_y, color);
     }
 }
 
