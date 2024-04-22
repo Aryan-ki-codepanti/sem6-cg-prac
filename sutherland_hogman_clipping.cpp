@@ -9,7 +9,7 @@ typedef vertex vertexArray[10000];
 
 bool Inside(vertex testVertex, edge clipBoundary)
 {
-    return ((clipBoundary[0][0] <= testVertex[0]) && (testVertex[0] <= clipBoundary[1][0]) && (clipBoundary[0][1] <= testVertex[1]) && (testVertex[1] <= clipBoundary[1][1]));
+    return (((clipBoundary[1][0] - clipBoundary[0][0]) * (testVertex[1] - clipBoundary[0][1]) - (clipBoundary[1][1] - clipBoundary[0][1]) * (testVertex[0] - clipBoundary[0][0])) < 0);
 }
 
 //          1       2           3,4
