@@ -53,5 +53,15 @@
         "fortran": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
         "sml": "cd $dir && sml $fileName",
         "mojo": "mojo run"
+    },
+    "files.associations": {
+        "*.ejs": "html",
+        "*.jsx": "javascriptreact",
+        "*.rmd": "markdown",
+        "*.sql": "oraclesql",
+        "*.cpp": "cpp",
+        "iostream": "cpp",
+        "*.pl": "prolog",
+        "ostream": "cpp"
     }
 }
