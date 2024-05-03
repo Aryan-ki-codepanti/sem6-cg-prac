@@ -208,6 +208,26 @@ void transformation1(cube obj)
     cout << "Rotated about centre (about y) and then (about x) and reduced to half size with overall scaling" << endl;
     print_cube(res4);
     plot_cube_proj_z(res4, "Rotated about centre (about y) and then (about x) reduced to half size with overall scaling", 4); // RED
+
+    // 1pt Perspective projection
+    // same thing at zc = 300
+
+    matrix persp_T = {0};
+    persp_T[0][0] = 1;
+    persp_T[1][1] = 1;
+    persp_T[2][2] = 1;
+    persp_T[3][3] = 1;
+
+    persp_T[2][3] = -1.0 / 1300;
+
+    matrix concat_T5 = {0};
+    cube res5 = {0};
+    matrix_mul(concat_T4, persp_T, concat_T5);
+    transform_mul(obj, concat_T5, res5);
+
+    cout << "same thing with perspective projecn Zc = 1300" << endl;
+    print_cube(res5);
+    plot_cube_proj_z(res5, "perspective projecn Zc = 1300", 5); // MAGENTA
 }
 
 int main()
