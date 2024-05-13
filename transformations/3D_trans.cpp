@@ -58,7 +58,7 @@ void add_edge(int i, int j, cube o)
 
 void plot_cube_proj_z(cube o, const char *title = "Cube", int col = 1)
 {
-    initwindow(600, 600, title);
+    setcurrentwindow(initwindow(600, 600, title));
     setcolor(col);
     add_edge(0, 1, o);
     add_edge(1, 2, o);
